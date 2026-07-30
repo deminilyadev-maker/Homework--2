@@ -62,7 +62,7 @@ python:3.12-slim
 ## Шаг 3. Сборка образа
 
 ```bash
-docker build -f Dockerfile.python -t python-app .
+docker build -f Dockerfile.python -t shvirtd-python:latest .
 ```
 
 ---
@@ -70,7 +70,7 @@ docker build -f Dockerfile.python -t python-app .
 ## Шаг 4. Запуск контейнера
 
 ```bash
-docker run --rm -p 5000:5000 python-app
+docker run --rm -p 5000:5000 shvirtd-python:latest
 ```
 
 ### Скриншот

@@ -93,7 +93,7 @@ docker run -p 5000:5000 shvirtd-python:latest
 
 # Задание 2. Публикация образа в Yandex Container Registry
 
-## Шаг 1. Авторизация Docker через Yandex Cloud CLI
+## Шаг 1. Авторизация Yandex Cloud CLI
 
 ```bash
 yc init --username=<электронная_почта>

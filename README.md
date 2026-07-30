@@ -119,10 +119,6 @@ docker push cr.yandex/<registry_id>/shvirtd-python:latest
 
 ## Шаг 4. Проверка опубликованного образа
 
-```bash
-yc container image list --registry-id <registry_id>
-```
-
 ### Скриншот
 
 ![Yandex Registry](Tks2_scan.png)

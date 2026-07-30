@@ -158,12 +158,6 @@ docker compose up --build -d
 curl -L http://127.0.0.1:8090
 ```
 
-### Скриншот
-
-![Verification](Tsk3_veryfication.png)
-
----
-
 ## Шаг 4. Подключение к MySQL
 
 ```bash

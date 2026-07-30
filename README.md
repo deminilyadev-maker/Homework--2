@@ -1,7 +1,8 @@
 # Домашнее задание «Docker»
-
-**Студент:** Демин Илья Викторович
-**Доработанный fork-репозиторий:** https://github.com/deminilyadev-maker/shvirtd-example-python.git
+| | |
+|---|---|
+| **Студент** | Демин Илья Викторович |
+| **Доработанный fork** | https://github.com/deminilyadev-maker/shvirtd-example-python |
 ---
 
 # Оглавление

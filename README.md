@@ -70,7 +70,7 @@ docker build -f Dockerfile.python -t shvirtd-python:latest .
 ## Шаг 4. Запуск контейнера
 
 ```bash
-docker run --rm -p 5000:5000 shvirtd-python:latest
+docker run -p 5000:5000 shvirtd-python:latest
 ```
 
 ### Скриншот

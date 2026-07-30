@@ -2,7 +2,7 @@
 
 **Студент:** Демин Илья Викторович
 
-**Ссылка на доработанный fork-репозиторий:**  https://github.com/deminilyadev-maker/shvirtd-example-python.git
+**Доработанный fork-репозиторий:** https://github.com/deminilyadev-maker/shvirtd-example-python.git
 ---
 
 # Оглавление

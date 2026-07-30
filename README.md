@@ -167,7 +167,7 @@ curl -L http://127.0.0.1:8090
 ## Шаг 4. Подключение к MySQL
 
 ```bash
-docker exec -it <container_name> mysql -u root -p
+docker exec -it shvirtd-example-python-db-1 mysql -u root -p
 ```
 
 ---

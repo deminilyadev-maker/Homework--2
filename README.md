@@ -95,7 +95,7 @@ docker run -p 5000:5000 shvirtd-python:latest
 ## Шаг 1. Авторизация Docker через Yandex Cloud CLI
 
 ```bash
-yc container registry configure-docker
+yc init --username=<электронная_почта>
 ```
 
 ---

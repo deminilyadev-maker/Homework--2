@@ -4,6 +4,17 @@
 
 ---
 
+# Оглавление
+
+- [Задание 0. Установка Docker Compose V2](#задание-0-установка-docker-compose-v2)
+- [Задание 1. Создание Docker-образа](#задание-1-создание-docker-образа)
+- [Задание 2. Публикация образа в Yandex Container Registry](#задание-2-публикация-образа-в-yandex-container-registry)
+- [Задание 3. Docker Compose](#задание-3-docker-compose)
+- [Задание 4. Автоматизация развертывания](#задание-4-автоматизация-развертывания)
+- [Задание 6. Работа с образом Terraform](#задание-6-работа-с-образом-terraform)
+
+---
+
 # Задание 0. Установка Docker Compose V2
 
 ## Шаг 1. Установка Docker Compose V2
@@ -17,7 +28,7 @@ sudo apt install docker-compose-v2
 
 ### Скриншот
 
-![Docker Compose V2](Tsk_0.png)
+![Docker Compose](Tsk_0.png)
 
 ---
 
@@ -31,9 +42,9 @@ docker compose version
 
 # Задание 1. Создание Docker-образа
 
-## Шаг 1. Fork репозитория
+## Шаг 1. Создание fork репозитория
 
-Создан fork репозитория `shvirtd-example-python`.
+Создан fork репозитория **shvirtd-example-python**.
 
 ### Скриншот
 
@@ -55,11 +66,11 @@ Dockerfile.python
 python:3.12-slim
 ```
 
-Применена многоэтапная (multistage) сборка.
+Использована многоэтапная сборка (multistage build).
 
 ---
 
-## Шаг 3. Сборка образа
+## Шаг 3. Сборка Docker-образа
 
 ```bash
 docker build -f Dockerfile.python -t shvirtd-python:latest .
@@ -79,33 +90,42 @@ docker run -p 5000:5000 shvirtd-python:latest
 
 ---
 
-# Задание 2. Публикация образа
+# Задание 2. Публикация образа в Yandex Container Registry
 
-## Шаг 1. Авторизация
+## Шаг 1. Авторизация Docker через Yandex Cloud CLI
 
 ```bash
-docker login
+yc container registry configure-docker
 ```
 
 ---
 
-## Шаг 2. Публикация образа
+## Шаг 2. Тегирование Docker-образа
 
 ```bash
-docker push <dockerhub-user>/<image>:latest
+docker tag shvirtd-python:latest \
+cr.yandex/<registry_id>/shvirtd-python:latest
 ```
 
 ---
 
-## Шаг 3. Проверка опубликованного образа
+## Шаг 3. Публикация образа
 
 ```bash
-docker pull <dockerhub-user>/<image>:latest
+docker push cr.yandex/<registry_id>/shvirtd-python:latest
+```
+
+---
+
+## Шаг 4. Проверка опубликованного образа
+
+```bash
+yc container image list --registry-id <registry_id>
 ```
 
 ### Скриншот
 
-![Docker Scan](Tks2_scan.png)
+![Yandex Registry](Tks2_scan.png)
 
 ---
 
@@ -136,7 +156,7 @@ docker compose up --build -d
 
 ---
 
-## Шаг 3. Проверка приложения
+## Шаг 3. Проверка работы приложения
 
 ```bash
 curl -L http://127.0.0.1:8090
@@ -211,7 +231,7 @@ docker compose up --build -d
 
 ### Скриншот
 
-![deploy.sh](Tsk4_nano.png)
+![deploy](Tsk4_nano.png)
 
 ---
 
@@ -223,7 +243,7 @@ chmod +x deploy.sh
 
 ---
 
-## Шаг 3. Запуск скрипта
+## Шаг 3. Запуск Bash-скрипта
 
 ```bash
 ./deploy.sh
@@ -247,9 +267,9 @@ docker compose ps
 
 ---
 
-## Шаг 5. Проверка внешнего IP
+## Шаг 5. Проверка внешнего IP-адреса
 
-Определение внешнего IP виртуальной машины.
+Определён внешний IP виртуальной машины.
 
 ### Скриншот
 
@@ -265,7 +285,7 @@ docker compose ps
 https://check-host.net/check-http
 ```
 
-Проверяемый адрес:
+Адрес проверки:
 
 ```
 http://84.201.150.198:8090
@@ -304,7 +324,7 @@ SELECT * FROM requests LIMIT 10;
 
 # Задание 6. Работа с образом Terraform
 
-## Шаг 1. Загрузка образа
+## Шаг 1. Загрузка Docker-образа
 
 ```bash
 docker pull hashicorp/terraform:latest

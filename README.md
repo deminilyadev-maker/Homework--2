@@ -284,7 +284,7 @@ HTTP 200 OK
 ## Шаг 6. Проверка записей в базе данных
 
 ```bash
-docker exec -it <container_name> mysql -u root -p
+sudo docker exec -it shvirtd-example-python-db-1 mysql -u root -p
 ```
 
 ```sql
